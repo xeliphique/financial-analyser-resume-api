@@ -86,8 +86,7 @@ Une position short (produits fournis par BNP Paribas) déterminé par ton choix:
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 if __name__ == '__main__':
-    # When deploying to Google Cloud Run or other serverless platforms,
-    # the port will be set by the environment variable PORT.
-# For local testing, you can run on port 5000 or another free port.
-    import os
-    port = int(5000)
+    # Récupère le port de l'environnement, par défaut 8080 si non défini (pour les tests locaux)
+    port = int(os.environ.get("PORT", 8080))
+    # Démarre l'application Flask
+    app.run(host="0.0.0.0", port=port, debug=False)
