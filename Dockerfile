@@ -11,8 +11,5 @@ RUN pip install -r requirements.txt
 # Copiez le reste de votre code
 COPY . .
 
-# Exposez le port sur lequel l'application Flask écoute (Cloud Run utilise la variable d'environnement PORT)
-ENV PORT 8080
-
 # Commande pour démarrer l'application
 CMD ["python", "appresume.py"]
